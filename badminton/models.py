@@ -1,5 +1,5 @@
 from django.db import models
-from players.models import Player,Tournament
+from players.models import Player,Tournament,Tournament_Season
 # Create your models here.
 
 
@@ -49,6 +49,15 @@ class Event(models.Model):
 
     def __str__(self):
         return self.event_key
+
+class Draw(models.Model):
+    Draw_event_key = models.ForeignKey(BWFTournament,related_name="DEkey", on_delete=models.PROTECT)
+    draw_name = models.CharField(max_length=254)
+    draw_type = models.CharField(max_length=254)
+    draw_url = models.CharField(max_length=254)
+    match_type = models.CharField(max_length=254)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Phase(models.Model):

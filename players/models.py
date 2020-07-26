@@ -69,6 +69,7 @@ class Tournament_Season(models.Model):
 class Tournament(models.Model):
     trnid = models.AutoField(primary_key=True)
     trnname = models.TextField(max_length=1000)
+    bwftrnid = models.TextField(max_length=1000)
     sptid = models.ForeignKey(Sport,related_name="sport",on_delete=models.PROTECT)
     cntid = models.ForeignKey(Country,related_name="country",on_delete=models.PROTECT)
     turid = models.ForeignKey(Tours,related_name="comptype",on_delete=models.PROTECT)

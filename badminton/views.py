@@ -3,7 +3,7 @@ import django_rq
 import requests
 # Create your views here.
 from .scraper import *
-from .tasks import scrape
+from .tasks import scrape,draw_extract
 
 
 def Country_Data(request):
@@ -17,3 +17,9 @@ def Scrape_Data(request):
         'default', is_async=True, default_timeout=30000)
     queue.enqueue(scrape)
     return HttpResponse("Scraping Tournamet and tours details..........")
+
+
+def Draw_Data(request):
+    queue = django_rq.get_queue('default', is_async=True, default_timeout=30000)
+    queue.enqueue(draw_extract)
+    return HttpResponse("Scraping Tournamet Season Draws..........")

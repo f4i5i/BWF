@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_rq',
     'django_admin_listfilter_dropdown',
     'import_export',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -164,4 +165,8 @@ RQ_QUEUES = {
         'PORT': 6379,
         'DB': 0,
     }
+}
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
 }
